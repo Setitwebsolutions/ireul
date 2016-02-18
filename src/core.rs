@@ -7,13 +7,13 @@ use ogg::{OggTrack, OggTrackBuf, OggPageBuf, OggBuilder};
 use ogg::vorbis::{VorbisPacket, VorbisPacketBuf, Comments as VorbisComments};
 use ogg_clock::OggClock;
 
-use ireul_interface::proxy::track::model::{self, Handle};
-use ireul_interface::proxy::track::{
+use ireul_rpc::proxy::track::model::{self, Handle};
+use ireul_rpc::proxy::track::{
     StatusRequest,
     StatusResult,
 };
 
-use ireul_interface::proxy::{
+use ireul_rpc::proxy::{
     EnqueueTrackRequest,
     EnqueueTrackError,
     EnqueueTrackResult,

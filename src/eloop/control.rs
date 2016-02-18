@@ -6,8 +6,8 @@ use std::io::{self, Read, Write};
 use byteorder::{ReadBytesExt, WriteBytesExt, BigEndian, ByteOrder};
 use time::SteadyTime;
 
-use ireul_interface::proto;
-use ireul_interface::proxy::RequestType;
+use ireul_rpc::proto;
+use ireul_rpc::proxy::RequestType;
 
 use ::core::Core;
 

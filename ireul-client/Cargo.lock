@@ -3,7 +3,7 @@ name = "ireul-client"
 version = "0.1.0"
 dependencies = [
  "byteorder 0.4.2 (registry+https://github.com/rust-lang/crates.io-index)",
- "ireul_interface 0.1.0",
+ "ireul_rpc 0.1.0",
  "ogg 0.1.0",
  "ogg_clock 0.1.0",
 ]
@@ -19,7 +19,7 @@ version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
-name = "ireul_interface"
+name = "ireul_rpc"
 version = "0.1.0"
 dependencies = [
  "byteorder 0.4.2 (registry+https://github.com/rust-lang/crates.io-index)",

@@ -1,6 +1,6 @@
 extern crate ogg;
 extern crate ogg_clock;
-extern crate ireul_interface;
+extern crate ireul_rpc;
 extern crate byteorder;
 
 use std::ffi::OsString;

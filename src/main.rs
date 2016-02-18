@@ -3,7 +3,7 @@ extern crate log;
 
 extern crate byteorder;
 extern crate env_logger;
-extern crate ireul_interface;
+extern crate ireul_rpc;
 extern crate ogg;
 extern crate ogg_clock;
 extern crate rand;
@@ -20,7 +20,7 @@ use std::fs::File;
 use ogg::{OggTrack, OggTrackBuf};
 use ogg_clock::OggClock;
 
-use ireul_interface::proxy::track::model::Handle;
+use ireul_rpc::proxy::track::model::Handle;
 
 mod queue;
 mod icecastwriter;

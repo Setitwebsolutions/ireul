@@ -1,5 +1,5 @@
 [package]
-name = "ireul_interface"
+name = "ireul_rpc"
 version = "0.1.0"
 authors = ["Stacey Ell <stacey.ell@gmail.com>"]
 

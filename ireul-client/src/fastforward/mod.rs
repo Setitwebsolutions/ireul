@@ -4,8 +4,8 @@ use std::net::TcpStream;
 
 use byteorder::{ReadBytesExt, WriteBytesExt, BigEndian};
 
-use ireul_interface::proto;
-use ireul_interface::proxy::{
+use ireul_rpc::proto;
+use ireul_rpc::proxy::{
     RequestType,
     FastForwardRequest,
     FastForward,

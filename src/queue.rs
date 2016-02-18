@@ -5,7 +5,7 @@ use rand::{self, Rng, ChaChaRng};
 
 use ogg::{OggTrack, OggTrackBuf};
 use ogg::vorbis::{Comments, VorbisPacket};
-use ireul_interface::proxy::track::model::{self, Handle};
+use ireul_rpc::proxy::track::model::{self, Handle};
 
 
 struct HandleAllocator<R> {

@@ -9,8 +9,8 @@ path = "./ogg"
 [dependencies.ogg_clock]
 path = "./ogg_clock"
 
-[dependencies.ireul_interface]
-path = "./ireul_interface"
+[dependencies.ireul_rpc]
+path = "./ireul_rpc"
 
 [dependencies]
 rustc-serialize = "0.3.16"

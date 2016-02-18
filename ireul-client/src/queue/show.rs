@@ -4,9 +4,9 @@ use std::net::TcpStream;
 
 use byteorder::{ReadBytesExt, WriteBytesExt, BigEndian};
 
-use ireul_interface::proto;
-use ireul_interface::proxy::RequestType;
-use ireul_interface::proxy::track::{
+use ireul_rpc::proto;
+use ireul_rpc::proxy::RequestType;
+use ireul_rpc::proxy::track::{
     StatusRequest,
     StatusResult,
 };
