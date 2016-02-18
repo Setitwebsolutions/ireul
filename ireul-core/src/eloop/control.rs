@@ -11,25 +11,9 @@ use ireul_rpc::proxy::RequestType;
 
 use libireul_core::Core;
 
-pub fn start(core: Core) {
-    let core = Arc::new(Mutex::new(core));
-
+pub fn start(core: Arc<Mutex<Core>>) {
     let control = TcpListener::bind("0.0.0.0:3001").unwrap();
-
-    let client_core = core.clone();
-    thread::spawn(move || {
-        client_acceptor(control, client_core.clone());
-    });
-
-    loop {
-        let next_tick_deadline = {
-            let mut exc_core = core.lock().unwrap();
-            exc_core.tick()
-        };
-
-        let sleep_time = next_tick_deadline - SteadyTime::now();
-        ::std::thread::sleep_ms(sleep_time.num_milliseconds() as u32);
-    }
+    thread::spawn(move || client_acceptor(control, core));
 }
 
 fn client_worker(mut stream: TcpStream, core: Arc<Mutex<Core>>) -> io::Result<()> {

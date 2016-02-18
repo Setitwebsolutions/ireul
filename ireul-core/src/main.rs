@@ -12,11 +12,15 @@ extern crate toml;
 extern crate url;
 extern crate time;
 extern crate libireul_core;
+extern crate dbus;
 
 use std::env;
 use std::collections::VecDeque;
 use std::io::Read;
 use std::fs::File;
+use std::sync::{Arc, Mutex};
+
+use time::SteadyTime;
 
 use ogg::{OggTrack, OggTrackBuf};
 use ogg_clock::OggClock;
@@ -32,7 +36,7 @@ use libireul_core::{
     IceCastWriterOptions,
 };
 
-const DEAD_AIR: &'static [u8] = include_bytes!("deadair.ogg");
+const DEAD_AIR: &'static [u8] = include_bytes!("../../deadair.ogg");
 
 #[derive(RustcDecodable, Debug)]
 struct MetadataConfig {
@@ -103,7 +107,7 @@ fn main() {
     }
 
 
-    let core = Core {
+    let core = Arc::new(Mutex::new(Core {
         connector: connector,
         cur_serial: 0,
         clock: OggClock::new(48000),
@@ -117,7 +121,18 @@ fn main() {
         play_queue: PlayQueue::new(100),
         offline_track: libireul_core::Track::from_ogg_track(Handle(0), offline_track),
         playing: None,
-    };
+    }));
 
-    eloop::control::start(core);
+    eloop::control::start(core.clone());
+    eloop::dbus::start(core.clone());
+
+    loop {
+        let next_tick_deadline = {
+            let mut exc_core = core.lock().unwrap();
+            exc_core.tick()
+        };
+
+        let sleep_time = next_tick_deadline - SteadyTime::now();
+        ::std::thread::sleep_ms(sleep_time.num_milliseconds() as u32);
+    }
 }

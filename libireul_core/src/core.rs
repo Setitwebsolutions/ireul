@@ -337,7 +337,6 @@ fn rewrite_comments<F>(track: &OggTrack, func: F) -> OggTrackBuf
                 }
             }
             if !emitted {
-                println!("adding packet: {:?}", packet);
                 builder.add_packet(packet);
             }
         }

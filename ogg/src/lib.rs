@@ -633,7 +633,6 @@ impl OggBuilder {
     }
 
     pub fn add_packet(&mut self, packet: &[u8]) {
-        println!("adding packet {:?}=>{:?}", packet.len(), packet);
         self.lengths.push(packet.len());
         self.buffer.extend(packet);
     }
