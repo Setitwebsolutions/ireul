@@ -121,7 +121,7 @@ fn main() {
     let mut offline_track = OggTrack::new(DEAD_AIR).unwrap().to_owned();
 
     if let Some(ref filename) = config.fallback_track {
-        let mut file = File::open("howbigisthis.ogg").unwrap();
+        let mut file = File::open(filename).unwrap();
         let mut buffer = Vec::new();
         file.read_to_end(&mut buffer).unwrap();
         offline_track = OggTrackBuf::new(buffer).unwrap();
