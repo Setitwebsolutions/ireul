@@ -4,7 +4,7 @@ use std::env;
 use std::fs::File;
 use std::io::{self, Read};
 use ogg::OggTrackBuf;
-use ogg::vorbis::VorbisHeader;
+use ogg::vorbis::VorbisPacket;
 
 fn main() {
     let filename = env::args_os().nth(1).unwrap();
@@ -16,7 +16,7 @@ fn main() {
 
     let ogg_track = OggTrackBuf::new(ogg_buf).unwrap();
 
-    let id = VorbisHeader::find_identification(ogg_track.pages()).unwrap();
+    let id = VorbisPacket::find_identification(ogg_track.pages()).unwrap();
     println!("identification header = {:?}", id.identification_header().unwrap());
     println!("identification header bytes = {:?}", id.as_u8_slice());
 
