@@ -9,4 +9,5 @@ script:
 - (cd ogg_clock && cargo build && cargo test --verbose)
 - (cd ireul_interface && cargo build && cargo test --verbose)
 - (cd ireul-client && cargo build && cargo test --verbose)
-- cargo test --verbose
+- (cd ireul-core-simple && cargo test --verbose)
+- (cd tools/packetrump && cargo test --verbose)

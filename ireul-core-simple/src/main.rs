@@ -11,6 +11,7 @@ extern crate rustc_serialize;
 extern crate toml;
 extern crate url;
 extern crate time;
+extern crate libireul_core;
 
 use std::env;
 use std::collections::VecDeque;
@@ -22,13 +23,11 @@ use ogg_clock::OggClock;
 
 use ireul_rpc::proxy::track::model::Handle;
 
-mod queue;
-mod icecastwriter;
-mod core;
 mod eloop;
 
-use queue::PlayQueue;
-use icecastwriter::{
+use libireul_core::{
+    PlayQueue,
+    Core,
     IceCastWriter,
     IceCastWriterOptions,
 };
@@ -104,7 +103,7 @@ fn main() {
     }
 
 
-    let core = core::Core {
+    let core = Core {
         connector: connector,
         cur_serial: 0,
         clock: OggClock::new(48000),
@@ -116,7 +115,7 @@ fn main() {
         prev_ogg_sequence: 0,
 
         play_queue: PlayQueue::new(100),
-        offline_track: queue::Track::from_ogg_track(Handle(0), offline_track),
+        offline_track: libireul_core::Track::from_ogg_track(Handle(0), offline_track),
         playing: None,
     };
 

@@ -3,14 +3,17 @@ name = "ireul"
 version = "0.0.1"
 authors = ["Stacey Ell <stacey.ell@gmail.com>"]
 
+[dependencies.libireul_core]
+path = "../libireul_core"
+
 [dependencies.ogg]
-path = "./ogg"
+path = "../ogg"
 
 [dependencies.ogg_clock]
-path = "./ogg_clock"
+path = "../ogg_clock"
 
 [dependencies.ireul_rpc]
-path = "./ireul_rpc"
+path = "../ireul_rpc"
 
 [dependencies]
 rustc-serialize = "0.3.16"

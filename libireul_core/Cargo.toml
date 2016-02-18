@@ -1,0 +1,25 @@
+[package]
+name = "libireul_core"
+version = "0.1.0"
+authors = ["Stacey Ell <stacey.ell@gmail.com>"]
+
+[dependencies.ogg]
+path = "../ogg"
+
+[dependencies.ogg_clock]
+path = "../ogg_clock"
+
+[dependencies.ireul_rpc]
+path = "../ireul_rpc"
+
+
+[dependencies]
+rustc-serialize = "0.3.16"
+log = "0.3"
+env_logger = "0.3"
+byteorder = "0.4"
+url = "*"
+toml = "*"
+rand = "*"
+time = "*"
+

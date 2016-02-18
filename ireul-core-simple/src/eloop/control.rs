@@ -9,7 +9,7 @@ use time::SteadyTime;
 use ireul_rpc::proto;
 use ireul_rpc::proxy::RequestType;
 
-use ::core::Core;
+use libireul_core::Core;
 
 pub fn start(core: Core) {
     let core = Arc::new(Mutex::new(core));
